@@ -1,0 +1,18 @@
+@use './variables' as *;
+
+@mixin flex($flex-direction, $justify-content, $align-item) {
+   display: flex;
+   flex-direction: $flex-direction;
+   justify-content: $justify-content;
+   align-items: $align-item;
+}
+@mixin grid($g-t-c, $g-t-r, $gap) {
+   display: grid;
+   grid-template-columns: repeat($g-t-c, 1fr);
+   grid-template-rows: repeat($g-t-r, 1fr);
+   grid-gap: $gap;
+}
+
+@mixin overlay {
+   background-color: rgba($color: #000000, $alpha: 0.6);
+}

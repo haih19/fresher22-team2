@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {routeList} from './routes'
+import HomeLayout from './layout/homeLayout'
+import CategoryLayout from './layout/categoryLayout'
+import {useEffect} from 'react'
+import guestService from './services/user.service'
+import './App.scss'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   useEffect(() => {
+      const getMovieList = async () => {
+         try {
+            const res = await guestService.getMovieList('popular', {})
+            console.log(res)
+         } catch (e) {
+            console.log(e)
+         }
+      }
+      getMovieList()
+   }, [])
+   return (
+      <BrowserRouter>
+         <Routes>
+            {routeList.map((route, index) => {
+               let Layout = route.layout === 'home' ? HomeLayout : CategoryLayout
+
+               return (
+                  <Route
+                     key={index}
+                     path={route.path}
+                     element={
+                        <Layout>
+                           <route.component />
+                        </Layout>
+                     }
+                  />
+               )
+            })}
+         </Routes>
+      </BrowserRouter>
+   )
 }
 
-export default App;
+export default App
