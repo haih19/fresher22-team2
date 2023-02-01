@@ -4,6 +4,8 @@ import HomeLayout from './layout/homeLayout'
 import CategoryLayout from './layout/categoryLayout'
 import {useEffect} from 'react'
 import guestService from './services/user.service'
+import PercentCircle from './components/percentCirlce'
+
 import './App.scss'
 function App() {
    useEffect(() => {
@@ -18,25 +20,26 @@ function App() {
       getMovieList()
    }, [])
    return (
-      <BrowserRouter>
-         <Routes>
-            {routeList.map((route, index) => {
-               let Layout = route.layout === 'home' ? HomeLayout : CategoryLayout
+      // <BrowserRouter>
+      //    <Routes>
+      //       {routeList.map((route, index) => {
+      //          let Layout = route.layout === 'home' ? HomeLayout : CategoryLayout
 
-               return (
-                  <Route
-                     key={index}
-                     path={route.path}
-                     element={
-                        <Layout>
-                           <route.component />
-                        </Layout>
-                     }
-                  />
-               )
-            })}
-         </Routes>
-      </BrowserRouter>
+      //          return (
+      //             <Route
+      //                key={index}
+      //                path={route.path}
+      //                element={
+      //                   <Layout>
+      //                      <route.component />
+      //                   </Layout>
+      //                }
+      //             />
+      //          )
+      //       })}
+      //    </Routes>
+      // </BrowserRouter>
+      <PercentCircle />
    )
 }
 

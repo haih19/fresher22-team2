@@ -1,1 +1,10 @@
 @use '../../scss/' as *;
+
+.percent-circle {
+   &__a {
+      color: red;
+      &__bar {
+         color: aquamarine;
+      }
+   }
+}
