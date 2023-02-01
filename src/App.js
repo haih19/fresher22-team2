@@ -4,7 +4,6 @@ import HomeLayout from './layout/homeLayout'
 import CategoryLayout from './layout/categoryLayout'
 import {useEffect} from 'react'
 import guestService from './services/user.service'
-import PercentCircle from './components/percentCirlce'
 
 import './App.scss'
 function App() {
