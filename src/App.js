@@ -20,26 +20,25 @@ function App() {
       getMovieList()
    }, [])
    return (
-      // <BrowserRouter>
-      //    <Routes>
-      //       {routeList.map((route, index) => {
-      //          let Layout = route.layout === 'home' ? HomeLayout : CategoryLayout
+      <BrowserRouter>
+         <Routes>
+            {routeList.map((route, index) => {
+               let Layout = route.layout === 'home' ? HomeLayout : CategoryLayout
 
-      //          return (
-      //             <Route
-      //                key={index}
-      //                path={route.path}
-      //                element={
-      //                   <Layout>
-      //                      <route.component />
-      //                   </Layout>
-      //                }
-      //             />
-      //          )
-      //       })}
-      //    </Routes>
-      // </BrowserRouter>
-      <PercentCircle />
+               return (
+                  <Route
+                     key={index}
+                     path={route.path}
+                     element={
+                        <Layout>
+                           <route.component />
+                        </Layout>
+                     }
+                  />
+               )
+            })}
+         </Routes>
+      </BrowserRouter>
    )
 }
 
