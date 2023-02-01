@@ -6,6 +6,6 @@ import PersonDetail from '../pages/personDetail'
 export const routeList = [
    {path: '/', component: HomePage, layout: 'home'},
    {path: '/:category', component: Catalog},
-   {path: '/:category/:id-/:title', component: MediaDetail},
-   {path: '/person/:id-/:name', component: PersonDetail, layout: 'home'},
+   {path: '/:category/:id', component: MediaDetail},
+   {path: '/person/:id', component: PersonDetail, layout: 'home'},
 ]

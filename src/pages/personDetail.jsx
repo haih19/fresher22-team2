@@ -1,5 +1,5 @@
 function Detail() {
-  return <div>Detail</div>;
+   return <div>person Detail</div>
 }
 
-export default Detail;
+export default Detail
