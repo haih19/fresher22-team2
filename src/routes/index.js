@@ -1,4 +1,4 @@
-import HomePage from '../pages/homePage'
+import HomePage from '../pages/home/'
 import Catalog from '../pages/catalog'
 import MediaDetail from '../pages/mediaDetail'
 import PersonDetail from '../pages/personDetail'
