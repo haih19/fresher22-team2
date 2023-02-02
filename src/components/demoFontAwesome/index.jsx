@@ -1,10 +1,10 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCheckCircle} from '@fortawesome/free-solid-svg-icons'
+import {faCheckCircle, faPlus} from '@fortawesome/free-solid-svg-icons'
 
 function Demo() {
    return (
       <div>
-         <FontAwesomeIcon icon={faCheckCircle} />
+         <FontAwesomeIcon icon={faPlus} />
       </div>
    )
 }

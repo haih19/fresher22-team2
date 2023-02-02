@@ -1,7 +1,7 @@
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-function HomeLayout({children}) {
+function Layout({children}) {
    return (
       <>
          <Header />
@@ -11,4 +11,4 @@ function HomeLayout({children}) {
    )
 }
 
-export default HomeLayout
+export default Layout
