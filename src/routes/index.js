@@ -1,11 +1,11 @@
 import HomePage from '../pages/homePage'
-import Catalog from '../pages/catalog'
-import MediaDetail from '../pages/mediaDetail'
+import MovieDetail from '../pages/movieDetail'
 import PersonDetail from '../pages/personDetail'
+import Search from '../pages/search'
 
 export const routeList = [
-   {path: '/', component: HomePage, layout: 'home'},
-   {path: '/:category', component: Catalog},
-   {path: '/:category/:id', component: MediaDetail},
-   {path: '/person/:id', component: PersonDetail, layout: 'home'},
+   {path: '/', component: HomePage},
+   {path: '/search/:type/:keyword', component: Search},
+   {path: '/:category/:id', component: MovieDetail},
+   {path: '/person/:id', component: PersonDetail},
 ]
