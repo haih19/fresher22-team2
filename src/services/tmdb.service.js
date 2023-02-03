@@ -5,7 +5,7 @@ import queryString from 'query-string'
 const api_key = process.env.REACT_APP_API_KEY
 
 const getTrendingList = (type, params) => {
-   const url = `trending/movie/${params.day}?api_key=${api_key}`
+   const url = `trending/${tmdbConfigs.category[type]}/${params.time_window}?api_key=${api_key}`
    return request.get(url)
 }
 
@@ -44,18 +44,29 @@ const credits = (cate, id) => {
    const url = tmdbConfigs.category[cate] + '/' + id + `/credits?api_key=${api_key}`
    return request.get(url)
 }
+// person => movie credits
+const personMediaCredits = (cate, id) => {
+   const url = `person/${id}/${cate}?api_key=${api_key}`
+   return request.get(url)
+}
+
 const similar = (cate, id) => {
    const url = tmdbConfigs.category[cate] + '/' + id + `/similar?api_key=${api_key}`
    return request.get(url)
 }
 const backdropPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original${imgEndPoint}`
-const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500${posterEndPoint}`
+const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500/${posterEndPoint}`
 
 const trailerPath = (videoId) => `https://www.youtube.com/embed/${videoId}`
 
 const tmdbService = {
    getTrendingList,
    getMovieList,
+   similar,
+   detail,
+   personMediaCredits,
+   posterPath,
+   backdropPath,
 }
 
 export default tmdbService

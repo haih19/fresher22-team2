@@ -1,0 +1,39 @@
+@use '../../../scss/' as *;
+
+.card-list {
+   margin-top: 30px;
+   max-width: 920px;
+   width: calc(100vw - 80px - 300px);
+   &__scroll {
+      min-height: 221px;
+      @include flex(unset, flex-start, unset);
+      gap: 12px;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      flex-wrap: nowrap;
+      width: auto;
+      padding-bottom: 10px;
+      &__item {
+         width: 130px;
+         max-width: 195px;
+         display: inline-block;
+         &__img {
+            width: 130px;
+            height: 195px;
+            a {
+               height: 100%;
+               min-width: 100%;
+               width: 100%;
+               display: inline-block;
+               img {
+                  border-radius: $bd-radius;
+               }
+            }
+         }
+         &__title {
+            text-align: center;
+         }
+      }
+   }
+}

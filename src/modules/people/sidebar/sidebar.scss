@@ -1,0 +1,65 @@
+@use '../../../scss/' as *;
+
+.sidebar {
+   @include flex(column, unset, unset);
+   gap: 30px;
+   &__avatar {
+      min-width: 300px;
+      width: 300px;
+      height: 450px;
+      img {
+         border-radius: $bd-radius;
+      }
+   }
+   &__info {
+      &__title {
+         h3 {
+            font-weight: 600;
+            font-size: 1.3em;
+         }
+      }
+      &__body {
+         &__item {
+            div {
+               strong {
+                  font-weight: 600;
+                  font-size: 1em;
+               }
+            }
+         }
+         &__item + &__item {
+            margin-top: 20px;
+         }
+      }
+   }
+   &__btn-edit {
+      p {
+         background-color: #01b4e4;
+         color: $bg-color;
+         width: fit-content;
+         border-radius: 20px;
+         font-weight: 700;
+         padding: 5px 25px;
+         cursor: pointer;
+         &:hover {
+            background-color: #000000;
+         }
+      }
+   }
+   &__actions {
+      opacity: 0.5;
+      div {
+         svg {
+            width: 30px;
+         }
+      }
+      div + div {
+         margin-top: 20px;
+      }
+      &__keyboard:hover,
+      &__report:hover {
+         cursor: pointer;
+         color: rgba($tmdbLightGreen, 1);
+      }
+   }
+}

@@ -1,0 +1,40 @@
+@use '../../../scss/' as *;
+
+.acting {
+   background-color: #fff;
+   border: 1px solid rgba($lightGrey, 1);
+   border-bottom: none;
+   &__item {
+      padding: 8px 16px;
+      @include flex(unset, unset, unset);
+      &__left {
+         width: 90px;
+         @include flex(unset, space-around, unset);
+         &__year {
+         }
+         &__null {
+         }
+         &__check {
+            svg {
+               //    color: #000;
+               color: unset;
+               background-color: transparent;
+            }
+         }
+      }
+      &__right {
+         &__character {
+            display: inline-block;
+            p {
+               margin-left: 4px;
+               display: inline-block;
+               color: rgba(0, 0, 0, 0.5);
+               font-weight: 400;
+               span {
+                  opacity: 0.7;
+               }
+            }
+         }
+      }
+   }
+}

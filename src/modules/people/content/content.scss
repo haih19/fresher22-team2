@@ -1,0 +1,57 @@
+@use '../../../scss/' as *;
+
+.content {
+   &__select {
+      @include flex(unset, flex-end, unset);
+      &__left,
+      &__right {
+         width: 120px;
+         font-weight: 400;
+         line-height: 1.5;
+         color: $txt-color;
+         position: relative;
+         &__title {
+            // background-color: rgb(255, 255, 255);
+            // background-color: #ffffff;
+            // border-color: #cccccc;
+            // color: #4c4c4c;
+            cursor: pointer;
+            padding: 6px 8px;
+            // border-radius: 3px;
+            @include flex(unset, space-between, unset);
+            &__txt {
+            }
+            &__icon {
+            }
+         }
+         &__body {
+            width: inherit;
+            background-color: #fff;
+            position: absolute;
+            top: 35px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(76, 76, 76);
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            &__item {
+               cursor: pointer;
+               padding: 4px 16px;
+               &:hover {
+                  background-color: #ccc;
+                  color: #fff;
+               }
+            }
+         }
+         &__title:hover + div {
+            display: block;
+         }
+      }
+      &__left {
+      }
+      &__right {
+      }
+   }
+}
