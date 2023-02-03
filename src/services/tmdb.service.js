@@ -5,7 +5,7 @@ import queryString from 'query-string'
 const api_key = process.env.REACT_APP_API_KEY
 
 const getTrendingList = (type, params) => {
-   const url = `trending/movie/${params.day}?api_key=${api_key}`
+   const url = `trending/${type}/${params.time_window}?api_key=${api_key}`
    return request.get(url)
 }
 

@@ -2,6 +2,7 @@ import './App.scss'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {routeList} from './routes'
 import Layout from './layout'
+import HomePage from './pages/homePage'
 
 function App() {
    return (
@@ -14,7 +15,8 @@ function App() {
                      path={route.path}
                      element={
                         <Layout>
-                           <route.component />
+                           {/* <route.component /> */}
+                           <HomePage/>
                         </Layout>
                      }
                   />

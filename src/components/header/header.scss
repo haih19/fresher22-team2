@@ -1,5 +1,6 @@
+@use '../../scss/' as *;
 .nav-bar {
-    background-color: #032541;
+    background-color: $tiltle-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
