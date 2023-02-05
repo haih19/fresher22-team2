@@ -11,8 +11,19 @@ export const separateMediabyYear = (arr) => {
          dateArr: [],
       }
    } else {
-      const dateArr = arr.filter((item) => item.release_date !== '')
-      const emptiedStrArr = arr.filter((item) => item.release_date === '')
+      const dateArr = arr.filter((item) => {
+         if (Object.keys(item).includes('release_date')) {
+            return item.release_date !== ''
+         }
+         return item.first_air_date !== ''
+      })
+      // first_air_date
+      const emptiedStrArr = arr.filter((item) => {
+         if (Object.keys(item).includes('release_date')) {
+            return item.release_date === ''
+         }
+         return item.first_air_date === ''
+      })
 
       return {
          emptiedStrArr,
