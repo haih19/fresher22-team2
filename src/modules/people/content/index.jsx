@@ -66,9 +66,11 @@ function Content(props) {
          {/* <ActingList
             renderList={generatePersonCreditList(creditType, productions, productions)}
          /> */}
-         <div className="content__acting-list">
-            <div className="content__acting-list__title">
-               <h3 style={{fontWeight: 600, fontSize: '1.3em'}}>Acting</h3>
+         <div className="content__list">
+            <div className="content__list__title">
+               <h3 style={{fontWeight: 600, fontSize: '1.3em', marginBottom: '10px'}}>
+                  Acting
+               </h3>
             </div>
          </div>
       </div>
