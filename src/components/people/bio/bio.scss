@@ -22,5 +22,15 @@
             text-align: justify;
          }
       }
+      &__btn {
+         &__icon {
+            color: rgb(1, 180, 228);
+            font-weight: 600;
+            cursor: pointer;
+            &:hover {
+               color: #1ed5a9;
+            }
+         }
+      }
    }
 }

@@ -1,6 +1,8 @@
 @use '../../../scss/' as *;
 
 .content {
+   max-width: 920px;
+   width: calc(100vw - 80px - 300px);
    &__select {
       @include flex(unset, flex-end, unset);
       &__left,

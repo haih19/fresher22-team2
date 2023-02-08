@@ -2,9 +2,19 @@
 
 .card-list {
    margin-top: 30px;
-   max-width: 920px;
-   width: calc(100vw - 80px - 300px);
+
    &__scroll {
+      margin-top: 8px;
+      &::-webkit-scrollbar {
+         width: 8px;
+         height: 8px;
+         border-radius: 10px;
+         background-color: #fff;
+      }
+      &::-webkit-scrollbar-thumb {
+         background-color: #ccc;
+         border-radius: 10px;
+      }
       min-height: 221px;
       @include flex(unset, flex-start, unset);
       gap: 12px;

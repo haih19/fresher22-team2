@@ -5,6 +5,9 @@ import tmdbService from '../../../services/tmdb.service'
 function CardSlide(props) {
    return (
       <div className="card-list">
+         <div className="card-list__title">
+            <h3 style={{fontWeight: 600, fontSize: '1.3em'}}>Known For</h3>
+         </div>
          <ul className="card-list__scroll">
             {props.credits &&
                props.credits.slice(0, 9).map((item, index) => (

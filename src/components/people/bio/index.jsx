@@ -22,23 +22,24 @@ function ReadMore(props) {
             </div>
             <div className="bio__body__txt">
                {isReadMore
-                  ? separateTxt(props.children.slice(0, 1000)).map((item, index) => (
+                  ? separateTxt(props.children.slice(0, 850)).map((item, index) => (
                        <p key={index}>{item}</p>
                     ))
                   : separateTxt(props.children).map((item, index) => (
                        <p key={index}>{item}</p>
                     ))}
             </div>
+
             <div
                style={{cursor: 'pointer'}}
                className="bio__body__btn"
                onClick={handleReadMore}>
                {isReadMore ? (
-                  <span style={{color: '#01b4e4', fontWeight: 600}}>
+                  <span className="bio__body__btn__icon">
                      Read more <FontAwesomeIcon icon={faAngleRight} />
                   </span>
                ) : (
-                  <span style={{color: '#01b4e4', fontWeight: 600}}>
+                  <span className="bio__body__btn__icon">
                      <FontAwesomeIcon icon={faAngleLeft} /> Show less
                   </span>
                )}

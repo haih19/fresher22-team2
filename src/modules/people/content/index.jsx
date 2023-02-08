@@ -59,13 +59,18 @@ function Content(props) {
             biography={items ? items.biography : null}
             name={items && items.name}
          />
-         <CardSlide credits={credits ? credits : null} />
+         <CardSlide credits={credits && credits} />
 
          <CreditFilters onClick={handleSetCreditType} />
          {/* <ActingList renderList={generatePersonCreditList(creditType, credits, tvCredits)} /> */}
          {/* <ActingList
             renderList={generatePersonCreditList(creditType, productions, productions)}
          /> */}
+         <div className="content__acting-list">
+            <div className="content__acting-list__title">
+               <h3 style={{fontWeight: 600, fontSize: '1.3em'}}>Acting</h3>
+            </div>
+         </div>
       </div>
    )
 }
@@ -83,6 +88,7 @@ const CreditFilters = (props) => {
    }
    const onClickRight = (e) => {
       setIsDisplayActionType(!isDisplayActionType)
+      setIsDisplayCate(false)
       setActionType(e)
    }
 

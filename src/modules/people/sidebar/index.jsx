@@ -4,7 +4,39 @@ import tmdbService from '../../../services/tmdb.service'
 import moment from 'moment/moment'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faExclamation, faKeyboard} from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
+
+const calculateLifeAge = (birthday, deathday) => {
+   const result =
+      birthday !== undefined &&
+      deathday !== undefined &&
+      birthday !== null &&
+      deathday === null
+         ? `${birthday} (${moment().diff(birthday, 'years')} years old)`
+         : `${birthday}`
+
+   return result
+}
+
+const calculateDeadAge = (birthday, deathday) => {
+   const result =
+      birthday !== undefined &&
+      deathday !== undefined &&
+      birthday !== null &&
+      deathday !== null ? (
+         <div className="sidebar__info__body__item">
+            <div className="sidebar__infor__body__item__header">
+               <strong>Day of Death</strong>
+            </div>
+            <div className="sidebar__infor__body__item__content">
+               {`${deathday} (${moment(deathday).diff(birthday, 'years')} years old)`}
+            </div>
+         </div>
+      ) : (
+         ''
+      )
+
+   return result
+}
 
 function Sidebar(props) {
    const [items, setItems] = useState(null)
@@ -80,31 +112,10 @@ function Sidebar(props) {
                      <strong>Birthday</strong>
                   </div>
                   <div className="sidebar__infor__body__item__content">
-                     {items && items.deathday
-                        ? `${items.birthday}`
-                        : `${items.birthday} (${moment().diff(
-                             items.birthday,
-                             'years'
-                          )} years old)`}
+                     {items && calculateLifeAge(items.birthday, items.deathday)}
                   </div>
                </div>
-
-               {items && items.deathday ? (
-                  <div className="sidebar__info__body__item">
-                     <div className="sidebar__infor__body__item__header">
-                        <strong>Day of Death</strong>
-                     </div>
-                     <div className="sidebar__infor__body__item__content">
-                        {items &&
-                           `${items.deathday} (${moment(items.deathday).diff(
-                              items.birthday,
-                              'years'
-                           )} years old)`}
-                     </div>
-                  </div>
-               ) : (
-                  ''
-               )}
+               {items && calculateDeadAge(items.birthday, items.deathday)}
                <div className="sidebar__info__body__item">
                   <div className="sidebar__infor__body__item__header">
                      <strong>Place of Birth</strong>
