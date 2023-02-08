@@ -1,0 +1,8 @@
+@use '../../../scss/' as *;
+
+.search-content {
+   padding-left: 30px;
+   background-color: #fff;
+   width: calc(100vw - 80px - 268px);
+   max-width: calc(1400px - 80px - 268px);
+}

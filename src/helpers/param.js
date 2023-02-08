@@ -9,3 +9,36 @@ export const removeCharacter = (str) => {
    }
    return Number(result.join(''))
 }
+
+export const getPathname = (str) => {
+   const strArr = str.split('/')
+   return strArr.filter((item) => item.length > 0)
+}
+
+export const searchToObject = (str) => {
+   var pairs = str.substring(1).split('&'),
+      obj = {},
+      pair,
+      i
+
+   for (i in pairs) {
+      if (pairs[i] === '') continue
+
+      pair = pairs[i].split('=')
+      obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1])
+   }
+
+   return obj
+}
+
+export const removeSuffixS = (str) => {
+   if (str[str.length - 1] === 's') {
+      return str.substring(0, str.length - 1)
+   } else {
+      return str
+   }
+}
+
+export const removeSpace = (str) => {
+   return str.replace(/\s/g, '')
+}

@@ -62,10 +62,10 @@ function Content(props) {
          <CardSlide credits={credits ? credits : null} />
 
          <CreditFilters onClick={handleSetCreditType} />
-         <ActingList renderList={generatePersonCreditList(creditType, credits, tvCredits)} />
-         <ActingList
+         {/* <ActingList renderList={generatePersonCreditList(creditType, credits, tvCredits)} /> */}
+         {/* <ActingList
             renderList={generatePersonCreditList(creditType, productions, productions)}
-         />
+         /> */}
       </div>
    )
 }

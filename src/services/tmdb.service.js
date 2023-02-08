@@ -56,6 +56,8 @@ const similar = (cate, id) => {
 }
 const backdropPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original${imgEndPoint}`
 const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500/${posterEndPoint}`
+const searchImage = (endPoint) =>
+   `https://www.themoviedb.org/t/p/w94_and_h141_bestv2/${endPoint}`
 
 const trailerPath = (videoId) => `https://www.youtube.com/embed/${videoId}`
 
@@ -67,6 +69,8 @@ const tmdbService = {
    personMediaCredits,
    posterPath,
    backdropPath,
+   search,
+   searchImage,
 }
 
 export default tmdbService

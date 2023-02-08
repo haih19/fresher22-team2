@@ -1,5 +1,7 @@
+import SearchModule from '../modules/search'
+
 function Search() {
-   return <div>search</div>
+   return <SearchModule />
 }
 
 export default Search

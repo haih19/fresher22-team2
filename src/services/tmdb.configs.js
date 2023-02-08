@@ -1,6 +1,7 @@
 const category = {
    movie: 'movie',
    tv: 'tv',
+   people: 'people',
 }
 
 const movieType = {

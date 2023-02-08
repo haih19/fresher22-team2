@@ -4,6 +4,7 @@ import Content from '../modules/people/content'
 import Sidebar from '../modules/people/sidebar'
 function PeopleDetail() {
    const {id} = useParams()
+
    return (
       <div
          className="container"

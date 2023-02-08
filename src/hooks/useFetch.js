@@ -5,10 +5,10 @@ function useFetch(service, options, immidiate = false) {
    const [error, setError] = useState(null)
    const [isLoading, setIsLoading] = useState(false)
 
-   const fetch = async (params) => {
+   const fetch = async (type, params) => {
       try {
          setIsLoading(true)
-         const res = await service(params.type, params.param)
+         const res = await service(type, params)
          setData(res)
       } catch (e) {
          setError(e)

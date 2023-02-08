@@ -4,11 +4,13 @@ import tmdbService from '../../../services/tmdb.service'
 import moment from 'moment/moment'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faExclamation, faKeyboard} from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 function Sidebar(props) {
    const [items, setItems] = useState(null)
    const [credits, setCredits] = useState(null)
    const [tvCredits, setTvCredits] = useState(null)
+
    const getPeopleDetail = async () => {
       try {
          const res1 = await tmdbService.detail('person', props.id)
@@ -78,13 +80,31 @@ function Sidebar(props) {
                      <strong>Birthday</strong>
                   </div>
                   <div className="sidebar__infor__body__item__content">
-                     {items &&
-                        `${items.birthday} (${moment().diff(
-                           items.birthday,
-                           'years'
-                        )} years old)`}
+                     {items && items.deathday
+                        ? `${items.birthday}`
+                        : `${items.birthday} (${moment().diff(
+                             items.birthday,
+                             'years'
+                          )} years old)`}
                   </div>
                </div>
+
+               {items && items.deathday ? (
+                  <div className="sidebar__info__body__item">
+                     <div className="sidebar__infor__body__item__header">
+                        <strong>Day of Death</strong>
+                     </div>
+                     <div className="sidebar__infor__body__item__content">
+                        {items &&
+                           `${items.deathday} (${moment(items.deathday).diff(
+                              items.birthday,
+                              'years'
+                           )} years old)`}
+                     </div>
+                  </div>
+               ) : (
+                  ''
+               )}
                <div className="sidebar__info__body__item">
                   <div className="sidebar__infor__body__item__header">
                      <strong>Place of Birth</strong>

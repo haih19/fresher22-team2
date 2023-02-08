@@ -1,0 +1,39 @@
+@use '../../../scss/' as *;
+
+.input-search {
+   display: flex;
+   font-size: inherit;
+   font-size: 1em;
+   //    padding: 3px 4px;
+   position: relative;
+   height: 44px;
+   width: 100% !important;
+   &__item-left {
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      line-height: 44px;
+      padding: 0 12px;
+   }
+   &__item-central {
+      width: 100%;
+      padding-right: 10px;
+      padding-left: 40px;
+      input {
+         font-size: 1em;
+         width: 100%;
+         border: none;
+         outline: none;
+         padding: 12px 0;
+         color: #acacac;
+         font-style: italic;
+      }
+   }
+   &__item-right {
+      cursor: pointer;
+      position: absolute;
+      line-height: 44px;
+      padding: 0 12px;
+      right: 0;
+   }
+}
