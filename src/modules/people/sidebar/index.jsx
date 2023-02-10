@@ -56,13 +56,6 @@ function Sidebar(props) {
       }
    }
 
-   // console.log(credits && separateMediabyYear([...credits.cast]))
-
-   // console.log(credits && mergeYearGroup(separateMediabyYear([...credits.cast]).dateArr))
-   // console.log(moment('2023-02-01', 'YYYY/MM/DD').valueOf())
-   // console.log(moment('2000-02-01', 'YYYY/MM/DD').valueOf())
-   // console.log(getYear('2047-01-02'))
-
    useEffect(() => {
       getPeopleDetail()
       // eslint-disable-next-line react-hooks/exhaustive-deps

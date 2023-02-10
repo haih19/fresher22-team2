@@ -89,8 +89,7 @@ const tmdbService = {
    searchImage,
    getVideos,
    trailerPath,
-   trailerPath,
-   getVideos,
+   credits,
 }
 
 export default tmdbService
