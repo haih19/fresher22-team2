@@ -2,6 +2,7 @@
 import './header.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus, faBell, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
+import {Link} from 'react-router-dom'
 
 import React from 'react'
 function Header() {
@@ -11,10 +12,12 @@ function Header() {
       <nav className="nav-bar">
          <ul className="nav-bar__left">
             <li>
-               <img
-                  src={img}
-                  className="img"
-               />
+               <Link to="/">
+                  <img
+                     src={img}
+                     className="img"
+                  />
+               </Link>
             </li>
             <li>Movie</li>
             <li>TV Shows</li>

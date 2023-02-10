@@ -64,7 +64,7 @@ function ActingList(props) {
                                     </div>
                                  </div>
                                  <div className="acting__item__right">
-                                    <Link to="/">{item.title}</Link>
+                                    <Link to={`/movie/${item.id}`}>{item.title}</Link>
                                     <div className="acting__item__right__character">
                                        {item.character && (
                                           <p>
@@ -96,7 +96,9 @@ function ActingList(props) {
                                        </div>
                                     </div>
                                     <div className="acting__item__right">
-                                       <Link to="/">{item.title || item.name}</Link>
+                                       <Link to={`/movie/${item.id}`}>
+                                          {item.title || item.name}
+                                       </Link>
                                        <div className="acting__item__right__character">
                                           {item.character && (
                                              <p>

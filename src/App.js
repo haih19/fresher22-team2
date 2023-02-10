@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {routeList} from './routes'
 import Layout from './layout'
 import 'react-loading-skeleton/dist/skeleton.css'
-import HomePage from './pages/homePage'
 
 function App() {
    return (
@@ -16,8 +15,7 @@ function App() {
                      path={route.path}
                      element={
                         <Layout>
-                           {/* <route.component /> */}
-                           <HomePage/>
+                           <route.component />
                         </Layout>
                      }
                   />

@@ -9,7 +9,7 @@ const getTrendingList = (type, params) => {
    return request.get(url)
 }
 
-const getPopularTv = (type) =>{
+const getPopularTv = (type) => {
    const url = `${type}/popular?api_key=${api_key}&language=en-US&page=1`
    return request.get(url)
 }
@@ -21,6 +21,11 @@ const getMovieList = (type, params) => {
       `?api_key=${api_key}` +
       queryString.stringify(params)
 
+   return request.get(url)
+}
+
+const getVideos = (cate, id) => {
+   const url = tmdbConfigs.category[cate] + '/' + id + `/videos?api_key=${api_key}`
    return request.get(url)
 }
 
@@ -62,13 +67,13 @@ const similar = (cate, id) => {
    return request.get(url)
 }
 const backdropPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original${imgEndPoint}`
-// const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500/${posterEndPoint}`
+const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500/${posterEndPoint}`
 const searchImage = (endPoint) =>
    `https://www.themoviedb.org/t/p/w94_and_h141_bestv2/${endPoint}`
 
-const posterPath = (type, endpoint) => `https://image.tmdb.org/t/p/${type}${endpoint}`
+const poster = (type, endpoint) => `https://image.tmdb.org/t/p/${type}${endpoint}`
 
-// const trailerPath = (videoId) => `https://www.youtube.com/embed/${videoId}`
+const trailerPath = (videoId) => `https://www.youtube.com/embed/${videoId}`
 
 const tmdbService = {
    getTrendingList,
@@ -78,10 +83,11 @@ const tmdbService = {
    backdropPath,
    detail,
    personMediaCredits,
-   posterPath,
-   backdropPath,
+   poster,
    search,
    searchImage,
+   getVideos,
+   trailerPath,
 }
 
 export default tmdbService

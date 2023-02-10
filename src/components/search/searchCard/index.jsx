@@ -13,11 +13,11 @@ function SearchCard(props) {
                <img
                   src={
                      type === 'movie'
-                        ? tmdbService.posterPath(
+                        ? tmdbService.poster(
                              'w94_and_h141_bestv2',
                              item.backdrop_path || item.drop_path || item.profile_path
                           )
-                        : tmdbService.posterPath(
+                        : tmdbService.poster(
                              'w94_and_h141_bestv2',
                              item.profile_path || item.drop_path || item.backdrop_path
                           )

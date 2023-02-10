@@ -19,11 +19,11 @@ function CardSlide(props) {
                         <Link to={`/movie/${item.id}`}>
                            <img
                               src={
-                                 tmdbService.posterPath(
+                                 tmdbService.poster(
                                     'w500',
                                     item.poster_path || item.backdrop_path
                                  )
-                                    ? tmdbService.posterPath('w500', item.poster_path)
+                                    ? tmdbService.poster('w500', item.poster_path)
                                     : null
                               }
                               alt=""

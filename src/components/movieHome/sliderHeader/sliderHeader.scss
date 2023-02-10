@@ -1,105 +1,115 @@
 .slider {
-    margin-top: 64px;
-    height: 600px;
-    &__wrap {
-        max-width: 1358px;
-        height: 50%;
-        padding: 28px 0;
-    }
+   margin-top: 64px;
+   height: 600px;
+   &__wrap {
+      height: 50%;
+      padding: 28px 0;
+   }
 
-    .bgTop {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: linear-gradient(to right, rgba(3,37,65, 0.8) 0%, rgba(3,37,65, 0) 100%),url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/5GISMqlRXMEyBrgEqyvhaMMuQmJ.jpg");
-    }
+   .bgTop {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+            to right,
+            rgba(3, 37, 65, 0.8) 0%,
+            rgba(3, 37, 65, 0) 100%
+         ),
+         url('https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/5GISMqlRXMEyBrgEqyvhaMMuQmJ.jpg');
+   }
 
-    .content-wrap-top {
-        padding: 30px 40px;
+   .content-wrap-top {
+      padding: 30px 40px;
 
-        .content {
-            font-size: 32px;
-            font-weight: 600;
-            color: white;
+      .content {
+         font-size: 32px;
+         font-weight: 600;
+         color: white;
 
-            h2 {
-                font-size: 48px;
-                line-height: 48px;
-            }
-        }
+         h2 {
+            font-size: 48px;
+            line-height: 48px;
+         }
+      }
 
-        .slider-search {
-            margin-top: 50px;
+      .slider-search {
+         margin-top: 50px;
+         width: 100%;
+         position: relative;
+
+         input {
             width: 100%;
-            position: relative;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 18px;
+            border: none;
+            height: 46px;
+         }
 
-            input {
-                width: 100%;
-                padding: 10px 20px;
-                border-radius: 30px;
-                font-size: 18px;
-                border: none;
-                height: 46px;
-            }
-
-            button {
-                position: absolute;
-                align-items: center;
-                height: 46px;
-                padding: 10px 26px;
-                border: none;
-                border-radius: 30px;
-                right: -1px;
-                color: white;
-                font-size: 16px;
-                font-weight: 700;
-               
-                background-image: linear-gradient(to right, rgba(30, 213, 169, 1) 0%, rgba(1, 180, 228, 1) 100%);
-            }
-
-            button:hover {
-                color: black
-            }
-        }
-    }
-
-    .bottom {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: linear-gradient(to right, rgba(3,37,65, 0.8) 0%, rgba(3,37,65, 0) 100%),url('https://image.tmdb.org/t/p/w1920_and_h600_multi_faces/rGbRnRvkmrSub07ty89Vnlsh6UX.jpg');
-        height: 50%;
-
-        &__content-wrap {
-            padding: 30px 40px;
+         button {
+            position: absolute;
+            align-items: center;
+            height: 46px;
+            padding: 10px 26px;
+            border: none;
+            border-radius: 30px;
+            right: -1px;
             color: white;
+            font-size: 16px;
+            font-weight: 700;
 
-            h2 {
-                display: inline-block;
-                font-weight: 700;
-                font-size: 60px;
-                line-height: 60px;
-                border-bottom: 1px solid white;
-            }
+            background-image: linear-gradient(
+               to right,
+               rgba(30, 213, 169, 1) 0%,
+               rgba(1, 180, 228, 1) 100%
+            );
+         }
 
-            p {
-                font-size: 20px;
-                line-height: 20px;
-                margin-top: 10px;
-                margin-bottom: 20px;
-            }
+         button:hover {
+            color: black;
+         }
+      }
+   }
 
-            button {
-                font-size: 16px;
-                font-weight: 700;
-                color: white;
-                border: 1px solid white;
-                background-color: transparent;
-                height: 40px;
-                width: 140px;
-                border-radius: 30px;
-            }
+   .bottom {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+            to right,
+            rgba(3, 37, 65, 0.8) 0%,
+            rgba(3, 37, 65, 0) 100%
+         ),
+         url('https://image.tmdb.org/t/p/w1920_and_h600_multi_faces/rGbRnRvkmrSub07ty89Vnlsh6UX.jpg');
+      height: 50%;
 
+      &__content-wrap {
+         padding: 30px 40px;
+         color: white;
 
-        }
+         h2 {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 60px;
+            border-bottom: 1px solid white;
+         }
 
-    }
+         p {
+            font-size: 20px;
+            line-height: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+         }
+
+         button {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            border: 1px solid white;
+            background-color: transparent;
+            height: 40px;
+            width: 140px;
+            border-radius: 30px;
+         }
+      }
+   }
 }
