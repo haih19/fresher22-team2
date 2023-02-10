@@ -1,0 +1,147 @@
+.sideBar {
+    // margin: 20px 0 20px 20px;
+    margin-left: 20px;
+    .sideBar__iconWrap {
+        display: flex;
+    }
+}
+// Card Icon
+.cdIcon {
+    height: 30px;
+    margin-bottom: 30px;
+    padding-right: 10px;
+    .cdIcon__link {
+        display: block;
+        font-size: 1.9em;
+        text-decoration: none;
+        font-weight: normal;
+    }
+    .cdIcon__icon {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 1em;
+        min-height: 1em;
+        width: 1em;
+        height: 1em;
+        line-height: inherit;
+        background-position: center center;
+        background-repeat: no-repeat;
+        color: inherit;
+        box-sizing: border-box;
+    }
+}
+
+// Card DESCRIPTIONS
+.cdDescription {
+    white-space: normal;
+    margin: 0 0 20px 0;
+    font-size: 1em;
+
+    .cd__header {
+        font-weight: 700;
+        font-size: 1em;
+        padding: 10px 0;
+    }
+
+    .cdDescription__strong {
+        display: block;
+        font-weight: 600;
+    }
+}
+
+//keywprds
+.header__df {
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 10px 0;
+}
+.keyword-item {
+    display: inline-block;
+    font-size: 1.3rem;
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid #d7d7d7;
+    color: #000;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    line-height: 24px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.content-score {
+    padding: 30px 0;
+    border-top: 1px solid #d7d7d7;
+    margin-top: 30px;
+    .score_num {
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #000;
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+.leader-item {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    &:first-child {
+        margin-top: 0;
+    }
+    .avatar {
+        width: 45px;
+        height: 45px;
+        .avatar-img {
+            border-radius: 50%;
+            width: 100%;
+        }
+    }
+    .info {
+        padding-left: 10px;
+        .edit_count {
+            font-weight: 600;
+        }
+    }
+}
+.view-more__link {
+    margin: 10px 0;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+
+.popularity-trend {
+    margin-top: 20px;
+}
+div#popularity_waypoint {
+    width: 222px;
+    height: 45px;
+}
+div#popularity_chart {
+    left: -13px;
+    width: 203px;
+    height: 50px;
+}
+.button-collection {
+    background-color: rgba(31.5, 31.5, 31.5, 1);
+    color: #fff;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 5px;
+    text-transform: uppercase;
+    &:hover {
+        background-color: #000;
+    }
+}

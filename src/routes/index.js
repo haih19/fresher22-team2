@@ -1,5 +1,5 @@
 import HomePage from '../pages/homePage'
-import MovieDetail from '../pages/movieDetail'
+import MovieDetail from '../pages/movieDetail/movieDetail'
 import PeopleDetail from '../pages/peopleDetail'
 import Search from '../pages/search'
 
