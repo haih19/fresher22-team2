@@ -67,6 +67,7 @@ export default function ContentMovieDetail({id}) {
     const handleClick = useCallback(
         (title) => {
             setStatus(title)
+            setStatus2(title)
         }, []
     )
 
@@ -99,43 +100,25 @@ export default function ContentMovieDetail({id}) {
                             ))
                         }
                         <LinkContent href="https://www.w3schools.com/" title="Go to Discussions"/>
-                        {/* <p className="cast__link"><a className="" href="/movie/505642-black-panther-wakanda-forever/discuss">Go to Discussions</a></p> */}
                     </div>
                 </div>
             </div>
         </div>
 
-{/* media here */}
         <div className="section-content">
-            {/* title */}
             <div className="title-menu">
                 <TitleContent title="Media" />
                 <TitleMenuContent onClickTab={handleClick} status={status2} listData={listMedia}/>
             </div>
-            {/* content */}
             {
-                    listMedia.map((value) => (
-                        status2 === value.title && (
-                            <div key={value.title}>{value.content}</div>
-                        )
-                    ))
-                }
-            {/* <div className="scroller_wrap shadow_card">
-                <div className="cards-list">
-                    <div className="wrapper_hihi media-item">
-                        <a href="/video/play?key=fkvTTmqjn3Q" data-site="YouTube" data-id="fkvTTmqjn3Q" data-title="Chiến Binh Báo Đen: Wakanda Bất Diệt"><div className="play_background"><span className="glyphicons_v2 play invert svg"></span></div></a>
-                    </div>
-                    <div className="media-item">
-                        <img src='https://www.themoviedb.org/t/p/w533_and_h300_bestv2/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg' alt="Chiến Binh Báo Đen: Wakanda Bất Diệt" />
-                    </div>
-                    <div className="poster-media media-item">
-                        <img src='https://www.themoviedb.org/t/p/w220_and_h330_face/uLluouDdIqqtB5Yrvdvt8DzAEs6.jpg' alt="Chiến Binh Báo Đen: Wakanda Bất Diệt" />
-                    </div>
-                </div>
-            </div> */}
+                listMedia.map((value) => (
+                    status2 === value.title && (
+                        <div key={value.title}>{value.content}</div>
+                    )
+                ))
+            }
         </div>
 
-{/* khac */}
         <div className="section-content section-collection">
             <div className='collection-text'>
                 <h2>Part of the Loạt phim Chiến Binh Báo Đen</h2>
@@ -144,7 +127,7 @@ export default function ContentMovieDetail({id}) {
 
             <p className="button-collection"><a href="/collection/529892-black-panther-collection">View the Collection</a></p>
         </div>
-{/* Recommendations here */}
+
         <div className="section-content">
             <TitleContent title="Recommendations" />
             <div className="scroller_wrap shadow_card">
