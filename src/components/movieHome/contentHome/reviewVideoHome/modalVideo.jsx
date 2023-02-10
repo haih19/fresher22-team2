@@ -51,7 +51,7 @@ const ModalVideoHome = ({tiltle, imgReview, content}) => {
                             channel='youtube'
                             autoplay
                             isOpen={isOpen}
-                            videoId="L61p2uyiMSo"
+                            videoId="Q6hn7crntG0"
                             onClose={() => setOpen(false)} />
                     </div>
 
