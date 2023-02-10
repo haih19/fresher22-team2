@@ -69,21 +69,11 @@ function Content(props) {
          <CardSlide movieCredits={movieCredits && movieCredits} />
 
          <CreditFilters onClick={handleSetCreditType} />
-         {/* <ActingList renderList={generatePersonCreditList(creditType, movieCredits, tvCredits)} /> */}
-         {/* <ActingList
-            renderList={generatePersonCreditList(creditType, productions, productions)}
-         /> */}
+
          <ActingList
             id={props.id}
             type={generateActingType(creditType)}
          />
-         {/* <div className="content__list">
-            <div className="content__list__title">
-               <h3 style={{fontWeight: 600, fontSize: '1.3em', marginBottom: '10px'}}>
-                  Acting
-               </h3>
-            </div>
-         </div> */}
       </div>
    )
 }
