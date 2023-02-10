@@ -483,3 +483,25 @@
         text-transform: uppercase;
     }
 }
+
+// Modal movie
+.modal-video-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-video-movie-wrap {
+        margin-bottom: -56.25%;
+        iframe {
+            border: 0;
+            width: 100%;
+            height: 540px;
+        }
+    }
+}

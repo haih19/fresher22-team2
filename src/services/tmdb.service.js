@@ -20,7 +20,7 @@ const getMovieList = (type, params) => {
 }
 
 const getVideos = (cate, id) => {
-   const url = tmdbConfigs.category[cate] + `/${id}/videos?api_key=${api_key}`
+   const url = tmdbConfigs.category[cate] + `/${id}/videos?api_key=${api_key}&append_to_response=videos`
    return request.get(url)
 }
 
@@ -61,6 +61,8 @@ const tmdbService = {
    credits,
    poster,
    detail,
+   trailerPath,
+   getVideos,
 }
 
 export default tmdbService

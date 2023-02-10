@@ -1,27 +1,29 @@
 import React, {useEffect, useState} from 'react'
+import ModalVideo from 'react-modal-video'
 import tmdbService from '../../../services/tmdb.service'
-// import { CircularProgressbar } from 'react-circular-progressbar';
-// import 'react-circular-progressbar/dist/styles.css';
-
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBookmark, faHeart, faList, faPlay, faStar} from '@fortawesome/free-solid-svg-icons'
 import {getYear, formatDate} from '../../../helpers/movie/year'
-
 import './headerMovieDetail.scss'
 import Poster from './Poster'
 import PieChart from './PieChart'
 import Tooltip from './Tooltip'
 import Profile from './Profile'
-// import { faList } from '@fortawesome/free-solid-svg-icons'
 
 export default function HeaderMovieDetail({id}) {
     // console.log('id ne', id);
     const [detail, setDetail] = useState();
+    const [listTrailers, setListTrailers] = useState();
+    const [isOpen, setIsOpen] = useState(false);
+
     const getPoster = async () => {
         try {
             const res = await tmdbService.detail('movie', id);
-            console.log('detail', res); //return object cua api
+            const movieTrailer = await tmdbService.getVideos('movie', id);
+            console.log('detail', res); //return object api
+            console.log('movieTrailer', movieTrailer);
             setDetail(res)
+            setListTrailers(movieTrailer)
 
         } catch (error) {
             console.log(error)
@@ -30,6 +32,7 @@ export default function HeaderMovieDetail({id}) {
     useEffect(() => {
         getPoster();
     }, [])
+console.log(listTrailers?.results[0]?.key);
     const convertTime = (str) => {
         const hours = Number(str)/60
         const hour = Math.floor(Number(str)/60)
@@ -73,10 +76,7 @@ export default function HeaderMovieDetail({id}) {
 
                             <ul className='auto'>
                                 <li className='chart'>
-                                    {/* <div className='pie'> */}
-                                        {/* <PieChart vote_average={listData.vote_average} big /> */}
                                         <PieChart vote={detail && detail.vote_average} />
-                                    {/* </div> */}
                                     <div className='text'>
                                         User
                                         <br />
@@ -93,9 +93,9 @@ export default function HeaderMovieDetail({id}) {
                                     </div>
                                     <span
                                         className='play'
-                                        // onClick={() => {
-                                        //     setIsVideos(videoTrailerNearCurrentTime.key);
-                                        // }}
+                                        onClick={() => {
+                                            setIsOpen(true);
+                                        }}
                                     >
                                         Play Trailer
                                     </span>
@@ -123,10 +123,7 @@ export default function HeaderMovieDetail({id}) {
                 </section>
             </div>
         </div>
-
-        <div>
-            {/* {isVideos === '' ? '' : <VideoModal isOpen={isOpen} close={handleShowVideo} keyVideo={isVideos} />} */}
-        </div>
-</div>
+        <ModalVideo isOpen={isOpen} onClose={() => setIsOpen(false)} videoId={listTrailers?.results[0]?.key}></ModalVideo>
+    </div>
   )
 }
