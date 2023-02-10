@@ -20,7 +20,7 @@ export default function PieChart({vote}) {
                trailColor: '#204529',
             })}>
             {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-            <p style={{fontSize: 24, position: 'relative', top: '-16%', left: '-7%'}}>
+            <p style={{fontSize: 24, position: 'relative', top: '-2%', left: '-4%'}}>
                {`${vote_average(vote)}`}
                <span style={{fontSize: 10, position: 'absolute', top: '20%'}}>%</span>
             </p>
