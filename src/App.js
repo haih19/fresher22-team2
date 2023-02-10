@@ -1,28 +1,13 @@
+import './App.scss'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {routeList} from './routes'
-import HomeLayout from './layout/homeLayout'
-import CategoryLayout from './layout/categoryLayout'
-import {useEffect} from 'react'
-import guestService from './services/user.service'
-import './App.scss'
+import Layout from './layout'
+
 function App() {
-   useEffect(() => {
-      const getMovieList = async () => {
-         try {
-            const res = await guestService.getMovieList('popular', {})
-            console.log(res)
-         } catch (e) {
-            console.log(e)
-         }
-      }
-      getMovieList()
-   }, [])
    return (
       <BrowserRouter>
          <Routes>
             {routeList.map((route, index) => {
-               let Layout = route.layout === 'home' ? HomeLayout : CategoryLayout
-
                return (
                   <Route
                      key={index}
