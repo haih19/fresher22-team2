@@ -1,0 +1,14 @@
+@use '../../scss/' as *;
+
+.search-module {
+   margin-top: 64px;
+
+   &__input-search {
+      border-bottom: 1px solid rgba($lightGrey, 1);
+      width: 100%;
+   }
+   &__body {
+      @include flex(unset, unset, unset);
+      padding: 30px 40px;
+   }
+}
