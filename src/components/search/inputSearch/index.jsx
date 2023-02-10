@@ -1,21 +1,22 @@
+import queryString from 'query-string'
 import {useRef, useState} from 'react'
 import {useLocation, useSearchParams} from 'react-router-dom'
 import {searchToObject} from '../../../helpers/param'
 import './inputSearch.scss'
 
 function InputSearch(props) {
-   const [searchTxt, setSearchText] = useState('')
    const location = useLocation()
+   const [searchTxt, setSearchText] = useState(queryString.parse(location.search).query || '')
    const [, setSearchParam] = useSearchParams({query: '', page: 1})
    const inputRef = useRef(null)
    const handleOnchangeSearch = (e) => {
       setSearchText(e.target.value)
       // props.onChange(e.target.value)
-      setSearchParam({query: e.target.value, page: 1})
    }
 
    const handleSearch = () => {
       setSearchParam({query: searchToObject(location.search).query, page: 1})
+      setSearchParam({query: searchTxt, page: 1})
       props.onClick()
    }
 

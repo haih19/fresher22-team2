@@ -2,17 +2,9 @@ import './App.scss'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {routeList} from './routes'
 import Layout from './layout'
-import {useEffect} from 'react'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function App() {
-   const o = {
-      get: () => {
-         console.log(this)
-      },
-   }
-   useEffect(() => {
-      o.get()
-   }, [])
    return (
       <BrowserRouter>
          <Routes>

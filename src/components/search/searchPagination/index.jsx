@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import queryString from 'query-string'
 import ReactPaginate from 'react-paginate'
 import {useLocation, useSearchParams} from 'react-router-dom'
 import {searchToObject} from '../../../helpers/param'
@@ -6,7 +6,10 @@ import './searchPagination.scss'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 function SearchPagination(props) {
-   const items = props.items
+   const pages =
+      props.items.total_pages !== undefined && props.items.total_pages !== null
+         ? props.items.total_pages
+         : 25
    const [, setSearchParam] = useSearchParams()
    const location = useLocation()
 
@@ -21,7 +24,7 @@ function SearchPagination(props) {
             previousLabel={'Previous'}
             nextLabel={'Next'}
             breakLabel={'...'}
-            pageCount={25}
+            pageCount={pages}
             marginPagesDisplayed={3}
             pageRangeDisplayed={6}
             containerClassName={'pagination'}
@@ -32,6 +35,7 @@ function SearchPagination(props) {
             nextClassName={'page-item'}
             nextLinkClassName={'page-link'}
             activeClassName={'active'}
+            forcePage={queryString.parse(location.search).page - 1}
          />
       </div>
    )

@@ -9,7 +9,7 @@ const compare = (a, b) => {
    }
    return false
 }
-const filterList = ['Movies', 'TV Shows', 'Keywords', 'People', 'Collections', 'Network']
+const filterList = ['Movies', 'TV Shows', 'Keywords', 'Person', 'Collections', 'Network']
 function SearchFilter(props) {
    const location = useLocation()
    const {type} = useParams()
@@ -31,7 +31,9 @@ function SearchFilter(props) {
                         compare(type, removeSuffixS(item).toLowerCase()) ? 'active' : ''
                      }`}>
                      <div className="search-filter__panel__body__item__left">{item}</div>
-                     <div className="search-filter__panel__body__item__right">{}</div>
+                     <div className="search-filter__panel__body__item__right">
+                        {props.total[index]}
+                     </div>
                   </Link>
                ))}
             </div>

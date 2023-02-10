@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {memo, useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 import {separateTxt} from '../../../helpers/sharedFunc'
@@ -57,4 +57,4 @@ const Biography = (props) => {
    )
 }
 
-export default Biography
+export default memo(Biography)

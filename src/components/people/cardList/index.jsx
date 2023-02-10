@@ -1,6 +1,7 @@
 import './cardList.scss'
 import {Link} from 'react-router-dom'
 import tmdbService from '../../../services/tmdb.service'
+import {memo} from 'react'
 
 function CardSlide(props) {
    return (
@@ -9,8 +10,8 @@ function CardSlide(props) {
             <h3 style={{fontWeight: 600, fontSize: '1.3em'}}>Known For</h3>
          </div>
          <ul className="card-list__scroll">
-            {props.credits &&
-               props.credits.slice(0, 9).map((item, index) => (
+            {props.movieCredits &&
+               props.movieCredits.slice(0, 9).map((item, index) => (
                   <li
                      key={index}
                      className="card-list__scroll__item">
@@ -18,8 +19,11 @@ function CardSlide(props) {
                         <Link to={`/movie/${item.id}`}>
                            <img
                               src={
-                                 tmdbService.posterPath(item.poster_path || item.backdrop_path)
-                                    ? tmdbService.posterPath(item.poster_path)
+                                 tmdbService.posterPath(
+                                    'w500',
+                                    item.poster_path || item.backdrop_path
+                                 )
+                                    ? tmdbService.posterPath('w500', item.poster_path)
                                     : null
                               }
                               alt=""
@@ -34,4 +38,4 @@ function CardSlide(props) {
    )
 }
 
-export default CardSlide
+export default memo(CardSlide)

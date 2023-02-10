@@ -26,10 +26,7 @@ const getVideos = (cate, id) => {
 
 const search = (cate, params) => {
    const url =
-      'search/' +
-      tmdbConfigs.category[cate] +
-      `?api_key=${api_key}&language=en-US&` +
-      queryString.stringify(params)
+      `search/${cate}?api_key=${api_key}&language=en-US&` + queryString.stringify(params)
 
    return request.get(url)
 }
@@ -55,9 +52,11 @@ const similar = (cate, id) => {
    return request.get(url)
 }
 const backdropPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original${imgEndPoint}`
-const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500/${posterEndPoint}`
+// const posterPath = (posterEndPoint) => `https://image.tmdb.org/t/p/w500/${posterEndPoint}`
 const searchImage = (endPoint) =>
    `https://www.themoviedb.org/t/p/w94_and_h141_bestv2/${endPoint}`
+
+const posterPath = (type, endpoint) => `https://image.tmdb.org/t/p/${type}${endpoint}`
 
 const trailerPath = (videoId) => `https://www.youtube.com/embed/${videoId}`
 

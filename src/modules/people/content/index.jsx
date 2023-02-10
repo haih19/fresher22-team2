@@ -1,6 +1,6 @@
 import './content.scss'
 import Biography from '../../../components/people/bio'
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import tmdbService from '../../../services/tmdb.service'
 import CardSlide from '../../../components/people/cardList'
 import ActingList from '../../../components/people/actingList'
@@ -8,23 +8,30 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
 import {mediaType, department} from '../../../constants/select'
 
-const generatePersonCreditList = (type, arr1, arr2) => {
-   if (arr1 && arr2 && type) {
-      switch (type) {
-         case 'Movies':
-            return arr1
-         case 'TV Shows':
-            return arr2
-         default:
-            return [...arr1, ...arr2]
-      }
+// const generatePersonCreditList = (type, arr1, arr2, arr3) => {
+//    switch (type) {
+//       case 'Movies':
+//          return arr1
+//       case 'TV Shows':
+//          return arr2
+//       default:
+//          return arr3
+//    }
+// }
+const generateActingType = (type) => {
+   switch (type) {
+      case 'Movies':
+         return 'Movies'
+      case 'TV Shows':
+         return 'TV Shows'
+      default:
+         return 'All'
    }
-   return []
 }
 
 function Content(props) {
    const [items, setItems] = useState(null)
-   const [credits, setCredits] = useState()
+   const [movieCredits, setMovieCredits] = useState()
    const [tvCredits, setTvCredits] = useState([])
    const [productions, setProductions] = useState([])
    const [creditType, setCreditType] = useState([])
@@ -33,8 +40,8 @@ function Content(props) {
       setCreditType(type)
    }
 
-   // generatePersonCreditList(creditType, credits, tvCredits)
-   // console.log(generatePersonCreditList(creditType, credits, tvCredits))
+   // generatePersonCreditList(creditType, movieCredits, tvCredits)
+   // console.log(generatePersonCreditList(creditType, movieCredits, tvCredits))
    // // neu bo ham o ngoai su dung usecallback
    useEffect(() => {
       const getPeopleDetail = async () => {
@@ -44,7 +51,7 @@ function Content(props) {
             const res3 = await tmdbService.personMediaCredits('tv_credits', props.id)
             // PROMISE ALL
             setItems(res1)
-            setCredits(res2.cast)
+            setMovieCredits(res2.cast)
             setProductions(res2.crew)
             setTvCredits(res3.cast)
          } catch (error) {
@@ -59,25 +66,29 @@ function Content(props) {
             biography={items ? items.biography : null}
             name={items && items.name}
          />
-         <CardSlide credits={credits && credits} />
+         <CardSlide movieCredits={movieCredits && movieCredits} />
 
          <CreditFilters onClick={handleSetCreditType} />
-         {/* <ActingList renderList={generatePersonCreditList(creditType, credits, tvCredits)} /> */}
+         {/* <ActingList renderList={generatePersonCreditList(creditType, movieCredits, tvCredits)} /> */}
          {/* <ActingList
             renderList={generatePersonCreditList(creditType, productions, productions)}
          /> */}
-         <div className="content__list">
+         <ActingList
+            id={props.id}
+            type={generateActingType(creditType)}
+         />
+         {/* <div className="content__list">
             <div className="content__list__title">
                <h3 style={{fontWeight: 600, fontSize: '1.3em', marginBottom: '10px'}}>
                   Acting
                </h3>
             </div>
-         </div>
+         </div> */}
       </div>
    )
 }
 
-const CreditFilters = (props) => {
+const CreditFilters = React.memo((props) => {
    const [category, setCategory] = useState('All')
    const [actionType, setActionType] = useState('All')
    const [isDisplayCate, setIsDisplayCate] = useState(false)
@@ -148,6 +159,6 @@ const CreditFilters = (props) => {
          </div>
       </div>
    )
-}
+})
 
 export default Content

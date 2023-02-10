@@ -71,7 +71,7 @@ function Sidebar(props) {
       <div className="sidebar">
          <div className="sidebar__avatar">
             <img
-               src={items ? tmdbService.posterPath(items.profile_path) : null}
+               src={items ? tmdbService.posterPath('w500', items.profile_path) : null}
                alt=""
             />
          </div>
