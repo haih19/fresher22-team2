@@ -8,6 +8,8 @@
     }
 
     .bgTop {
+        background-position: center;
+        background-repeat: no-repeat;
         background-image: linear-gradient(to right, rgba(3,37,65, 0.8) 0%, rgba(3,37,65, 0) 100%),url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/5GISMqlRXMEyBrgEqyvhaMMuQmJ.jpg");
     }
 
@@ -50,6 +52,7 @@
                 color: white;
                 font-size: 16px;
                 font-weight: 700;
+               
                 background-image: linear-gradient(to right, rgba(30, 213, 169, 1) 0%, rgba(1, 180, 228, 1) 100%);
             }
 
@@ -60,6 +63,8 @@
     }
 
     .bottom {
+        background-position: center;
+        background-repeat: no-repeat;
         background-image: linear-gradient(to right, rgba(3,37,65, 0.8) 0%, rgba(3,37,65, 0) 100%),url('https://image.tmdb.org/t/p/w1920_and_h600_multi_faces/rGbRnRvkmrSub07ty89Vnlsh6UX.jpg');
         height: 50%;
 

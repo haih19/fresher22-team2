@@ -1,23 +1,106 @@
+@use '../../../scss/' as *;
+@import './node_modules/react-modal-video/scss/modal-video.scss';
 .trending-wrap-home {
     margin-top: 30px;
+
     .wrap-cards {
+        display: flex;
+        width: 1358px;
+        overflow-x: auto;
+        overflow-y: hidden;
         margin-left: 40px;
         padding: 20px 0;
+
         .card-home {
             width: 150px;
+            min-width: 150px;
             display: inline-block;
             cursor: pointer;
             margin-right: 20px;
-            .img-card {
-                height: 225px;
-                width: 150px;
-                border-radius: 8px;
-            }
 
+            &__wrap-img {
+                position: relative;
+
+                .img-card {
+                    height: 225px;
+                    width: 150px;
+                    border-radius: 8px;
+                }
+
+                .circular {
+                    position: absolute;
+                    bottom: -0.8rem;
+                    left: 8px;
+
+                    .circular-progress {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 38px;
+                        height: 38px;
+                        border-radius: 50%;
+                        background-color: $tiltle-color ;
+
+                        svg {
+                            transform: rotate(-90deg);
+
+                            circle {
+                                transform: scale(0.95);
+                            }
+                        }
+
+                        .number-percent {
+                            position: absolute;
+                            color: white;
+
+                            span {
+                                position: absolute;
+                                font-size: 5px;
+                                top: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .elip {
+                    position: absolute;
+                    top: 12px;
+                    right: 10px;
+                    width: 23px;
+                    height: 23px;
+
+                    &__wrap {
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgb(203 213 225);
+                        border-radius: 9999px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &:hover {
+                            background-color: aqua;
+                        }
+
+                        &__icon {
+                            transform: scale(0.42);
+                            display: flex;
+                            gap: 3px;
+                            font-size: 13px;
+
+                            .icon {
+                                color: rgb(95, 104, 121);
+                            }
+                        }
+                    }
+                }
+            }
+            
             &__wrap-content {
                 width: 100%;
                 padding: 26px 10px 0;
                 word-break: break-all;
+
                 h3 {
                     font-size: 16px;
                     font-weight: 700;
@@ -30,5 +113,143 @@
                 }
             }
         }
+    }
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background-color: rgb(219, 219, 219);
+}
+
+.bgtrend-home {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg');
+}
+
+// scss leaderBoard
+.leaderBoardHome {
+    padding: 30px 40px;
+
+    &__tiltle {
+        display: flex;
+
+        h2 {
+            margin-right: 20px;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        div {
+            p {
+                display: flex;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+                font-size: 15px;
+
+                span {
+                    border-radius: 50%;
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    margin-right: 10px;
+                    background: linear-gradient(to right, rgba(192, 254, 207, 1) 0%, rgba(30, 213, 169, 1) 100%);
+                }
+
+                .dot-edit {
+                    background: linear-gradient(to right, rgba(253, 193, 112, 1) 0%, rgba(217, 59, 99, 1) 100%);
+                }
+            }
+        }
+    }
+
+    &__wrap-content {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        &__item {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+
+            .leaderHome-ava {
+                position: relative;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background-color: palevioletred;
+
+                span {
+                    position: absolute;
+                    text-transform: uppercase;
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: white;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .leaderHome-info {
+                width: 80%;
+
+                h4 {
+                    font-size: 20px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    margin-left: 10px;
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+
+                    div {
+                        margin-left: 10px;
+                        height: 8px;
+                        width: 100%;
+                        border-radius: 4px;
+                        background: linear-gradient(to right, rgba(192, 254, 207, 1) 0%, rgba(30, 213, 169, 1) 100%);
+                    }
+
+                    .info-thisweek {
+                        background: linear-gradient(to right, rgba(253, 193, 112, 1) 0%, rgba(217, 59, 99, 1) 100%);
+                    }
+
+                    h4 {
+                        font-size: 15px;
+                        line-height: 15px;
+                        font-weight: 700;
+                        margin-left: 10px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// style video home
+.videoHome{
+    background-color: #162940;
+    padding-top: 30px;
+    &__wrap-item{
+        display: flex;
+        padding: 20px 0;
+        margin-left: 40px;
     }
 }

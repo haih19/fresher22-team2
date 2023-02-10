@@ -39,7 +39,7 @@
                     -webkit-text-fill-color: transparent;
                 }
                 .color-active-2{
-                    color: $tiltle-color;
+                    color: white;
                 }
             }
             &__cover {
@@ -55,4 +55,14 @@
         }
 
     }
+}
+
+.switch-boder-video{
+    border: 1px solid rgba(30,213,169,1) !important;
+}
+.switch-text-video{
+    color: $tiltle-color !important;
+}
+.switch-cover-video{
+    background: linear-gradient(to right, rgba(192,254,207, 1) 0%, rgba(30,213,169, 1) 100%) !important;
 }

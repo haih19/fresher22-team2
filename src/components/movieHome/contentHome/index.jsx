@@ -1,11 +1,16 @@
 import React from 'react'
-import TrendingHome from './trendingHome'
+import LeaderBoard from '../leaderBoard'
 import './contentHome.scss'
+import ListPopularHome from './listPopularHome'
+import ListTrendingHome from './listTrendingHome'
+import ReviewVideoHome from './reviewVideoHome'
 const ContentHome = () => {
   return (
     <div className='content-home'>
-        <TrendingHome/>
-       
+       <ListTrendingHome/>
+       <ReviewVideoHome/>
+       <ListPopularHome/>
+       <LeaderBoard/>
     </div>
   )
 }

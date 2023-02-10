@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import './switchSelectionHome.scss'
-const SwitchSection = ({ items }) => {
-    const [sectionActive,setSectionActive ] = useState(false)
+const SwitchSection = ({ items, onToggle,  isToggle , styleSwitch}) => {
     const item1Ref = useRef();
     const item2Ref = useRef();
     const [item1Width,setItem1Width] = useState()
@@ -12,16 +11,18 @@ const SwitchSection = ({ items }) => {
         setItem2Width(item2Ref.current.offsetWidth)
     },[])
     const handleToggle =(toggle) =>{
-        setSectionActive(toggle)
+        onToggle(toggle)
     }
-    const toggleText = 'color-active-1'
+
+    const toggleText =  styleSwitch[1]===''? 'color-active-1': 'switch-text-video'
+    const textNoActive = styleSwitch[0] ===''? '': 'color-active-2'
     return (
         <>
-            <div className='section-item' ref={item2Ref}>
-                <div ref={item1Ref}><a  onClick={() =>handleToggle(false)} className={`${sectionActive||toggleText}`}>{items[0]}</a></div>
-                <div ><a onClick={()=>handleToggle(true)} className={`${sectionActive&&toggleText}`}>{items[1]}</a></div>
-                <span className='section-item__cover' style={
-                    sectionActive?{
+            <div className={`section-item ${styleSwitch[0]}`} ref={item2Ref}>
+                <div ref={item1Ref}><a onClick={() =>handleToggle(items[0])} className={` ${textNoActive} ${isToggle||toggleText}`}>{items[0]}</a></div>
+                <div ><a onClick={()=>handleToggle(items[1])} className={`${textNoActive} ${isToggle&&toggleText}`}>{items[1]}</a></div>
+                <span className={`section-item__cover ${styleSwitch[2]}`} style={
+                    isToggle?{
                         left:`${item1Width}px`,
                         width: `${item2Width - item1Width}px`
                     }:

@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
 import './sliderHeader.scss'
 const SliderHeader = () => {
+    const [search, setSearch] = useState('');
+    const  navigate = useNavigate()
+    const handleOnChange = (e) =>{
+        setSearch(e.target.value)
+    }
+    const handleOnClick = () =>{
+        navigate(`/search/movie?query=${search}&page=1`)
+        setSearch('')
+    }
     return (
         <div className='slider'>
             <div className='slider__wrap bgTop'>
@@ -12,8 +22,13 @@ const SliderHeader = () => {
                         Millions of movies, TV shows and people to discover. Explore now.
                     </div>
                     <div className='slider-search'>
-                        <input placeholder='Search for a movie, tv show, person......' />
-                        <button className='button-search'>Search</button>
+                        <input
+                        value={search}
+                        onChange={(e)=>handleOnChange(e)} 
+                        placeholder='Search for a movie, tv show, person......' />
+                        <button 
+                        onClick={() =>handleOnClick()}
+                        className='button-search'>Search</button>
                     </div>
                 </div>
             </div>
