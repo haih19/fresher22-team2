@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import tmdbService from '../../../services/tmdb.service'
-// import { CircularProgressbar } from 'react-circular-progressbar';
-// import 'react-circular-progressbar/dist/styles.css';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBookmark, faHeart, faList, faPlay, faStar} from '@fortawesome/free-solid-svg-icons'
@@ -12,121 +10,132 @@ import Poster from './Poster'
 import PieChart from './PieChart'
 import Tooltip from './Tooltip'
 import Profile from './Profile'
-// import { faList } from '@fortawesome/free-solid-svg-icons'
 
 export default function HeaderMovieDetail({id}) {
-    // console.log('id ne', id);
-    const [detail, setDetail] = useState();
-    const getPoster = async () => {
-        try {
-            const res = await tmdbService.detail('movie', id);
-            console.log('detail', res); //return object cua api
-            setDetail(res)
+   const [detail, setDetail] = useState()
+   const getPoster = async () => {
+      try {
+         const res = await tmdbService.detail('movie', id)
+         console.log('detail', res)
+         setDetail(res)
+      } catch (error) {
+         console.log(error)
+      }
+   }
+   useEffect(() => {
+      getPoster()
+   }, [])
+   const convertTime = (str) => {
+      const hours = Number(str) / 60
+      const hour = Math.floor(Number(str) / 60)
+      return `${hour}h ${Math.round((hours - hour) * 60)}m`
+   }
 
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    useEffect(() => {
-        getPoster();
-    }, [])
-    const convertTime = (str) => {
-        const hours = Number(str)/60
-        const hour = Math.floor(Number(str)/60)
-        return `${hour}h ${Math.round((hours - hour)*60)}m`
-    }
+   return (
+      <div
+         className="hdoverview"
+         style={{
+            backgroundImage: `url(${
+               detail && tmdbService.poster('w500', detail.backdrop_path)
+            })`,
+         }}>
+         <div className="hdoverview__keyboard">
+            <div className="hdoverview__column">
+               <section className="images">
+                  <div className="poster_wrapper">
+                     <Poster
+                        pathImg={detail && detail.poster_path}
+                        title={detail && detail.original_title}
+                     />
+                  </div>
 
-  return (
-    <div className='hdoverview' style={{backgroundImage: `url(${detail && tmdbService.poster('w500', detail.backdrop_path)})`}}>
-        <div className='hdoverview__keyboard'>
-            <div className='hdoverview__column'>
-                <section className='images'>
-                    <div className='poster_wrapper'>
-                        <Poster pathImg={detail && detail.poster_path} title={detail && detail.original_title}/>
-                    </div>
+                  <div className="header_poster_wrapper ">
+                     <section className="header__poster">
+                        <div className="title">
+                           <h2 className="name__header">
+                              <a
+                                 className="link__name"
+                                 href="/movie/315162-puss-in-boots-the-last-wish">
+                                 {detail && detail.original_title}
+                              </a>
+                              <span className="tag">
+                                 ({detail && getYear(detail.release_date)})
+                              </span>
+                           </h2>
 
-                    <div className='header_poster_wrapper '>
-                        <section className='header__poster'>
-                            <div className='title'>
-                                <h2 className='name__header'>
-                                    <a
-                                        className='link__name'
-                                        href="/movie/315162-puss-in-boots-the-last-wish"
-                                    >
-                                        {detail && detail.original_title}                                        
-                                    </a>
-                                    <span className='tag'>
-                                        ({detail && getYear(detail.release_date)})
-                                    </span>
-                                </h2>
+                           <div className="facts">
+                              <span className="certification">PG</span>
 
-                                <div className='facts'>
-                                    <span className='certification'>PG</span>
+                              <span className="release">
+                                 {detail && formatDate(detail.release_date)} (US)
+                              </span>
 
-                                    <span className='release'>
-                                        {detail && formatDate(detail.release_date)} (US)
-                                    </span>
+                              <span className="runtime">
+                                 {detail && convertTime(detail.runtime)}
+                              </span>
+                           </div>
+                        </div>
 
-                                    <span className='runtime'>{detail && convertTime(detail.runtime)}</span>
-                                </div>
-                            </div>
+                        <ul className="auto">
+                           <li className="chart">
+                              {/* <div className='pie'> */}
+                              {/* <PieChart vote_average={listData.vote_average} big /> */}
+                              <PieChart vote={detail && detail.vote_average} />
+                              {/* </div> */}
+                              <div className="text">
+                                 User
+                                 <br />
+                                 Score
+                              </div>
+                           </li>
+                           <Tooltip iconProp={<FontAwesomeIcon icon={faList} />} />
+                           <Tooltip iconProp={<FontAwesomeIcon icon={faHeart} />} />
+                           <Tooltip iconProp={<FontAwesomeIcon icon={faBookmark} />} />
+                           <Tooltip iconProp={<FontAwesomeIcon icon={faStar} />} />
+                           <li className="video">
+                              <div className="no_click--play">
+                                 <FontAwesomeIcon icon={faPlay} />
+                              </div>
+                              <span
+                                 className="play"
+                                 // onClick={() => {
+                                 //     setIsVideos(videoTrailerNearCurrentTime.key);
+                                 // }}
+                              >
+                                 Play Trailer
+                              </span>
+                           </li>
+                        </ul>
 
-                            <ul className='auto'>
-                                <li className='chart'>
-                                    {/* <div className='pie'> */}
-                                        {/* <PieChart vote_average={listData.vote_average} big /> */}
-                                        <PieChart vote={detail && detail.vote_average} />
-                                    {/* </div> */}
-                                    <div className='text'>
-                                        User
-                                        <br />
-                                        Score
-                                    </div>
-                                </li>
-                                <Tooltip iconProp={<FontAwesomeIcon icon={faList} />} />
-                                <Tooltip iconProp={<FontAwesomeIcon icon={faHeart} />} />
-                                <Tooltip iconProp={<FontAwesomeIcon icon={faBookmark} />} />
-                                <Tooltip iconProp={<FontAwesomeIcon icon={faStar} />} />
-                                <li className='video'>
-                                    <div className='no_click--play'>
-                                        <FontAwesomeIcon icon={faPlay} />
-                                    </div>
-                                    <span
-                                        className='play'
-                                        // onClick={() => {
-                                        //     setIsVideos(videoTrailerNearCurrentTime.key);
-                                        // }}
-                                    >
-                                        Play Trailer
-                                    </span>
-                                </li>
-                            </ul>
+                        <div className="header_info">
+                           <h3
+                              className="tagline"
+                              dir="auto">
+                              {detail && detail.tagline}
+                           </h3>
+                           <h3
+                              className="title__overview"
+                              dir="auto">
+                              Overview
+                           </h3>
+                           <div className="overview">{detail && detail.overview}</div>
 
-                            <div className='header_info'>
-                                <h3 className='tagline' dir="auto">
-                                    {detail && detail.tagline}
-                                </h3>
-                                <h3 className='title__overview' dir="auto">Overview</h3>
-                                <div className='overview'>
-                                    {detail && detail.overview}
-                                </div>
-
-                                <ol className='people'>
-                                    <Profile />
-                                    <Profile />
-                                    <Profile />
-                                    <Profile />
-                                </ol>
-                            </div>
-                        </section>
-                    </div>
-                </section>
+                           <ol className="people">
+                              <Profile />
+                              <Profile />
+                              <Profile />
+                              <Profile />
+                           </ol>
+                        </div>
+                     </section>
+                  </div>
+               </section>
             </div>
-        </div>
+         </div>
 
-        <div>
+         <div>
             {/* {isVideos === '' ? '' : <VideoModal isOpen={isOpen} close={handleShowVideo} keyVideo={isVideos} />} */}
-        </div>
-</div>
-  )
+         </div>
+      </div>
+   )
 }

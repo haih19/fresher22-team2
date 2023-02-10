@@ -3,13 +3,14 @@ import ReactPaginate from 'react-paginate'
 import {useLocation, useSearchParams} from 'react-router-dom'
 import {searchToObject} from '../../../helpers/param'
 import './searchPagination.scss'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
 function SearchPagination(props) {
    const pages =
       props.items.total_pages !== undefined && props.items.total_pages !== null
          ? props.items.total_pages
          : 25
+
+   console.log('props: ', pages)
    const [, setSearchParam] = useSearchParams()
    const location = useLocation()
 

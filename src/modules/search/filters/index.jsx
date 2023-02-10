@@ -1,5 +1,4 @@
-import {useEffect} from 'react'
-import {Link, useLocation, useNavigate, useParams} from 'react-router-dom'
+import {Link, useLocation, useParams} from 'react-router-dom'
 import {removeSuffixS, searchToObject, removeSpace} from '../../../helpers/param'
 import './filters.scss'
 

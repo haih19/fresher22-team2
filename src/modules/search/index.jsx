@@ -1,16 +1,15 @@
-import {type} from '@testing-library/user-event/dist/type'
-import {useCallback, useEffect, useState} from 'react'
-import {useLocation, useParams, useSearchParams} from 'react-router-dom'
+import {useEffect, useState} from 'react'
+import {useLocation, useParams} from 'react-router-dom'
 import InputSearch from '../../components/search/inputSearch'
-import {getPathname, searchToObject} from '../../helpers/param'
+import {searchToObject} from '../../helpers/param'
 import useFetch from '../../hooks/useFetch'
-import tmdbConfigs from '../../services/tmdb.configs'
 import tmdbService from '../../services/tmdb.service'
 import SearchContent from './content'
 import SearchFilter from './filters'
 import NotFound from './notFound'
 import queryString from 'query-string'
 import './searchModule.scss'
+import SkeletonCard from '../../components/search/skeletonContent'
 
 function SearchModule() {
    const location = useLocation()
@@ -19,21 +18,9 @@ function SearchModule() {
    const [totalResult, setTotalResult] = useState([])
    const [data, setData] = useState()
 
-   // const [people, setPeople] = useState()
+   const {fetch: searchMovies} = useFetch(tmdbService.search)
 
-   const {
-      data: moviesData,
-      error: moviesError,
-      isLoading: isLoadingMovies,
-      fetch: searchMovies,
-   } = useFetch(tmdbService.search)
-
-   const {
-      data: peopleData,
-      error: peopleError,
-      isLoading: isLoadingPeople,
-      fetch: searchPeople,
-   } = useFetch(tmdbService.search)
+   const {fetch: searchPeople} = useFetch(tmdbService.search)
 
    const handleInputSearch = (txt) => {
       setSearchTxt(txt)
@@ -46,7 +33,6 @@ function SearchModule() {
 
    const fetchData = async () => {
       try {
-         // ['Movies', 'TV Shows', 'Keywords', 'People', 'Collections', 'Network']
          const res = await tmdbService.search(
             type === 'person' ? 'person' : type === 'movie' ? 'movie' : 'tv',
             queryString.parse(location.search)
@@ -80,8 +66,6 @@ function SearchModule() {
       searchPeople('person', searchToObject(location.search))
       fetchData()
    }, [location, type])
-   // console.log('check people: ', people)
-   //
    console.log('type: ', type)
 
    return (
@@ -89,14 +73,13 @@ function SearchModule() {
          <div className="search-module__input-search">
             <InputSearch
                onClick={handleSearch}
-               // onKeyDown={handleSearch}
                onChange={handleInputSearch}
             />
          </div>
          <div className="search-module__body container">
             <SearchFilter total={totalResult && totalResult} />
             {data === undefined || data === null ? (
-               <NotFound />
+               [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => <SkeletonCard key={index} />)
             ) : type === 'movie' || type === 'person' ? (
                <SearchContent content={data} />
             ) : (
