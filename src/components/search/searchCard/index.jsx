@@ -6,10 +6,11 @@ import moment from 'moment'
 function SearchCard(props) {
    const {type} = useParams()
    const item = props.item
+   console.log('check item: ', item)
    return (
       <div className="search-card">
          <div className="search-card__image">
-            <Link to="/">
+            <Link to={item && type === 'movie' ? `/movie/${item.id}` : `/person/${item.id}`}>
                <img
                   src={
                      type === 'movie'
@@ -29,7 +30,10 @@ function SearchCard(props) {
          <div className="search-card__info">
             <div className="search-card__info__head">
                <div className="search-card__info__head__title">
-                  <Link to="/">
+                  <Link
+                     to={
+                        item && type === 'movie' ? `/movie/${item.id}` : `/person/${item.id}`
+                     }>
                      <h2>{item.title || item.name}</h2>
                   </Link>
                </div>

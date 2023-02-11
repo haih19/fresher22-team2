@@ -21,14 +21,12 @@ export default function ContentMovieDetail({id}) {
          const res = await tmdbService.credits('movie', id)
          const movie = await tmdbService.detail('movie', id)
 
-         // console.log(res); //return object cua api
          setCredits(res)
          setDetail(movie)
       } catch (error) {
          console.log(error)
       }
    }
-   // console.log('useState', credits);
    useEffect(() => {
       getCast()
    }, [])

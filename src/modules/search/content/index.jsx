@@ -7,13 +7,14 @@ function SearchContent(props) {
    return (
       <div className="search-content">
          <div className="search-content__list">
-            {items &&
-               items.results.map((item, index) => (
-                  <SearchCard
-                     key={index}
-                     item={item}
-                  />
-               ))}
+            {items === undefined || items === null
+               ? null
+               : items.results.map((item, index) => (
+                    <SearchCard
+                       key={index}
+                       item={item}
+                    />
+                 ))}
          </div>
          <div className="search-content__pagiantion">
             <SearchPagination items={items} />

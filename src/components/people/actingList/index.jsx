@@ -23,8 +23,7 @@ function ActingList(props) {
    const {emptiedStrArr: emptiedCast, dateArr: dateCast} = separateMediabyYear(
       reviseCast(data?.cast && data.cast)
    )
-   // console.log('alo: ', emptiedCast, dateCast)
-   // console.log('check: ', separateMediabyYear(reviseCast(data.cast && data.cast)))
+
    useEffect(() => {
       switch (props.type) {
          case 'Movies':

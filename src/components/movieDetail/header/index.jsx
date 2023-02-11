@@ -11,7 +11,6 @@ import Tooltip from './Tooltip'
 import Profile from './Profile'
 
 export default function HeaderMovieDetail({id}) {
-   // console.log('id ne', id);
    const [detail, setDetail] = useState()
    const [listTrailers, setListTrailers] = useState()
    const [isOpen, setIsOpen] = useState(false)
@@ -20,8 +19,7 @@ export default function HeaderMovieDetail({id}) {
       try {
          const res = await tmdbService.detail('movie', id)
          const movieTrailer = await tmdbService.getVideos('movie', id)
-         console.log('detail', res) //return object api
-         console.log('movieTrailer', movieTrailer)
+
          setDetail(res)
          setListTrailers(movieTrailer)
       } catch (error) {
@@ -31,7 +29,6 @@ export default function HeaderMovieDetail({id}) {
    useEffect(() => {
       getPoster()
    }, [])
-   console.log(listTrailers?.results[0]?.key)
    const convertTime = (str) => {
       const hours = Number(str) / 60
       const hour = Math.floor(Number(str) / 60)

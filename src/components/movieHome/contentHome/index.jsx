@@ -5,14 +5,14 @@ import ListPopularHome from './listPopularHome'
 import ListTrendingHome from './listTrendingHome'
 import ReviewVideoHome from './reviewVideoHome'
 const ContentHome = () => {
-  return (
-    <div className='content-home'>
-       <ListTrendingHome/>
-       <ReviewVideoHome/>
-       <ListPopularHome/>
-       <LeaderBoard/>
-    </div>
-  )
+   return (
+      <div className="content-home container">
+         <ListTrendingHome />
+         <ReviewVideoHome />
+         <ListPopularHome />
+         <LeaderBoard />
+      </div>
+   )
 }
 
 export default ContentHome
