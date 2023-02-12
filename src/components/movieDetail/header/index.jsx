@@ -28,6 +28,7 @@ export default function HeaderMovieDetail({id}) {
    }
    useEffect(() => {
       getPoster()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
    const convertTime = (str) => {
       const hours = Number(str) / 60

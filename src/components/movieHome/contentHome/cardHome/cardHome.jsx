@@ -2,7 +2,6 @@ import React from 'react'
 import ElipHome from '../../elipHome'
 import CircularProgressHome from '../circularProgressHome'
 import '../contentHome.scss'
-//import PieHome from '../pieHome'
 const CardHome = ({imgCard, title, release_date, percent}) => {
    return (
       <>

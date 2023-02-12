@@ -21,6 +21,7 @@ function useFetch(service, options, immidiate = false) {
       if (immidiate) {
          fetch(options)
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    return {data, error, isLoading, fetch}

@@ -29,6 +29,7 @@ export default function ContentMovieDetail({id}) {
    }
    useEffect(() => {
       getCast()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    const listSocial = [
