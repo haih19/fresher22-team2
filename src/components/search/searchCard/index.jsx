@@ -6,7 +6,6 @@ import moment from 'moment'
 function SearchCard(props) {
    const {type} = useParams()
    const item = props.item
-   console.log('check item: ', item)
    return (
       <div className="search-card">
          <div className="search-card__image">
