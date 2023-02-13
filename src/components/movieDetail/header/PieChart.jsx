@@ -3,10 +3,8 @@ import {buildStyles, CircularProgressbarWithChildren} from 'react-circular-progr
 
 export default function PieChart({vote}) {
    const vote_average = (num) => {
-      // return Number(num.toFixed(1)) * 10;
       return Number((num * 10).toFixed())
    }
-   console.log('vote', typeof vote) //nume
    return (
       <div className="pie">
          <CircularProgressbarWithChildren

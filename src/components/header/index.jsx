@@ -1,4 +1,3 @@
-//import { Link } from "react-router-dom"
 import './header.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus, faBell, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +15,7 @@ function Header() {
                   <img
                      src={img}
                      className="img"
+                     alt=""
                   />
                </Link>
             </li>

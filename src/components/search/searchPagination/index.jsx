@@ -10,7 +10,6 @@ function SearchPagination(props) {
          ? props.items.total_pages
          : 25
 
-   console.log('props: ', pages)
    const [, setSearchParam] = useSearchParams()
    const location = useLocation()
 

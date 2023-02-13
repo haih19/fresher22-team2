@@ -8,16 +8,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
 import {mediaType, department} from '../../../constants/select'
 
-// const generatePersonCreditList = (type, arr1, arr2, arr3) => {
-//    switch (type) {
-//       case 'Movies':
-//          return arr1
-//       case 'TV Shows':
-//          return arr2
-//       default:
-//          return arr3
-//    }
-// }
 const generateActingType = (type) => {
    switch (type) {
       case 'Movies':
@@ -32,8 +22,8 @@ const generateActingType = (type) => {
 function Content(props) {
    const [items, setItems] = useState(null)
    const [movieCredits, setMovieCredits] = useState()
-   const [tvCredits, setTvCredits] = useState([])
-   const [productions, setProductions] = useState([])
+   const [, setTvCredits] = useState([])
+   const [, setProductions] = useState([])
    const [creditType, setCreditType] = useState([])
 
    const handleSetCreditType = (type) => {

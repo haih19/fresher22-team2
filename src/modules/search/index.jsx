@@ -37,7 +37,6 @@ function SearchModule() {
             type === 'person' ? 'person' : type === 'movie' ? 'movie' : 'tv',
             queryString.parse(location.search)
          )
-         console.log('check res: ', res)
          setData({...data, ...res})
       } catch (error) {
          console.log(error)
@@ -65,8 +64,8 @@ function SearchModule() {
       searchMovies('movie', searchToObject(location.search))
       searchPeople('person', searchToObject(location.search))
       fetchData()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [location, type])
-   console.log('type: ', type)
 
    return (
       <div className="search-module ">
@@ -79,7 +78,7 @@ function SearchModule() {
          <div className="search-module__body container">
             <SearchFilter total={totalResult && totalResult} />
             {data === undefined || data === null ? (
-               [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => <SkeletonCard key={index} />)
+               [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => <SkeletonCard key={item} />)
             ) : type === 'movie' || type === 'person' ? (
                <SearchContent content={data} />
             ) : (
